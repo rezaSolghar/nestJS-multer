@@ -8,12 +8,14 @@ import { MulterModule } from '@nestjs/platform-express';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CacheModule } from '@nestjs/cache-manager';
 
 @Module({
   imports: [
     ProductModule,
     DatabaseModule,
     ConfigModule.forRoot({ isGlobal: true }),
+    
   ],
   controllers: [AppController],
   providers: [AppService],

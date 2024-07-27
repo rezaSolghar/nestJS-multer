@@ -7,6 +7,7 @@ import { MulterModule } from '@nestjs/platform-express';
 import { extname } from 'path';
 import { diskStorage } from 'multer';
 import { v4 as uuid } from 'uuid';
+import { CacheModule } from '@nestjs/cache-manager';
 export const multerOptions = {
   limits: {
     fileSize: 1024 * 1024 * 10,
@@ -43,6 +44,7 @@ export const multerOptions = {
   imports: [
     TypeOrmModule.forFeature([Product]),
     MulterModule.register(multerOptions),
+    CacheModule.register(),
   ],
   controllers: [ProductController],
   providers: [ProductService],
